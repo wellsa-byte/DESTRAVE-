@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#11120f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="DESTRAVE">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/icon.svg">
+  <link rel="stylesheet" href="/styles.css">
+  <title>DESTRAVE — memória musical</title>
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <div class="brand">DESTRAVE<span>IDEIAS · LETRAS · MÚSICAS</span></div>
+      <button class="icon-btn" id="settingsBtn" aria-label="Configurações" title="Configurações">⚙</button>
+    </header>
+
+    <section class="home" id="homeView">
+      <p class="eyebrow">SUA MEMÓRIA MUSICAL</p>
+      <h1>O que tá na sua cabeça <em>agora?</em></h1>
+      <p class="sub">Grave antes que a ideia escape.</p>
+      <button class="record" id="recordBtn" aria-label="Começar gravação">
+        <span class="record-inner"><span id="recordGlyph">●</span></span>
+      </button>
+      <p class="record-label" id="recordLabel">TOQUE PARA GRAVAR</p>
+      <p class="timer" id="timer">00:00</p>
+      <div class="write-row">
+        <input id="quickNote" type="text" maxlength="500" placeholder="Ou escreva sua ideia...">
+        <button id="saveNoteBtn" class="send-btn" aria-label="Salvar ideia">↗</button>
+      </div>
+      <p class="hint" id="hint">Áudio e texto ficam salvos neste aparelho.</p>
+    </section>
+
+    <section class="views hidden" id="libraryView">
+      <div class="section-head"><button class="back-btn" data-home>‹</button><h2>Suas ideias</h2><span id="ideaCount" class="count">0</span></div>
+      <div class="search"><span>⌕</span><input id="searchInput" placeholder="Buscar palavras ou contexto..."></div>
+      <div id="libraryList" class="library-list"></div>
+      <p id="emptyLibrary" class="empty">Suas próximas ideias começam com um toque.</p>
+    </section>
+
+    <section class="views hidden" id="creativeView">
+      <div class="section-head"><button class="back-btn" data-home>‹</button><h2>Destravar</h2></div>
+      <p class="sub left">Uma frase, um sentimento ou uma história pela metade.</p>
+      <textarea id="creativePrompt" placeholder="Conta o que você tem — mesmo que esteja confuso..."></textarea>
+      <div class="chips">
+        <button class="chip" data-mode="frases">Frases</button>
+        <button class="chip" data-mode="rimas">Rimas</button>
+        <button class="chip" data-mode="historia">História</button>
+        <button class="chip" data-mode="refrão">Refrão</button>
+      </div>
+      <button class="primary" id="generateBtn">Encontrar um caminho <span>↗</span></button>
+      <p id="aiStatus" class="hint"></p>
+      <article id="creativeResult" class="result hidden"></article>
+      <button id="saveResultBtn" class="secondary hidden">Guardar essa ideia</button>
+    </section>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-view="home"><span>◉</span>Gravar</button>
+      <button class="nav-item" data-view="library"><span>◷</span>Biblioteca</button>
+      <button class="nav-item" data-view="creative"><span>✳</span>Ideias</button>
+    </nav>
+  </main>
+  <dialog id="settingsDialog">
+    <div class="dialog-head"><h2>Configurações</h2><button id="closeSettings" class="icon-btn">×</button></div>
+    <p>O DESTRAVE guarda suas ideias neste navegador. A IA online só funciona quando uma chave de API é configurada no servidor.</p>
+    <p class="hint" id="backendStatus">Verificando IA…</p>
+    <button id="exportBtn" class="secondary">Exportar lista de ideias</button>
+    <p class="hint">Os áudios não são enviados à IA neste protótipo.</p>
+  </dialog>
+  <script src="/app.js"></script>
+</body>
+</html>

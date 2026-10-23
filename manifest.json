@@ -1,0 +1,10 @@
+{
+  "name": "DESTRAVE — Memória Musical",
+  "short_name": "DESTRAVE",
+  "description": "Grave, guarde e desenvolva ideias musicais.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#11120f",
+  "theme_color": "#11120f",
+  "icons": [{"src":"/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
